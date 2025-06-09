@@ -63,20 +63,20 @@ function game(player1, player2) {
                 alert("This box is already filled!");
             }
             if (player1turn) {
-                box.innerHTML = "X";
-                board[box.id] = "X";
+                box.innerHTML = "x";
+                board[box.id] = "x";
                
                 let result = checkWin(board);
-                if (result === "X") {
+                if (result === "x") {
                     setTimeout(() => {
-                        alert(`${player1} congratulations you won!`);
+                        alert(`Player1 congratulations you won!`);
                     }, 50);
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
-                } else if (result === "O") {
+                } else if (result === "o") {
                     setTimeout(() => {
-                        alert(`${player2} congratulations you won!`);
+                        alert(`Player2 congratulations you won!`);
                     }, 50);
                    document.querySelectorAll(".box").forEach((box) => {
                     box.style.pointerEvents = "none";
@@ -100,20 +100,20 @@ function game(player1, player2) {
                
             }
             else if (player2turn) {
-                box.innerHTML = "O";
-                board[box.id] = "O";
+                box.innerHTML = "o";
+                board[box.id] = "o";
                
                 let result = checkWin(board);
-                if (result === "X") {
+                if (result === "x") {
                     setTimeout(() => {
-                        alert(`${player1} congratulations you won!`);
+                        alert(`Player1 congratulations you won!`);
                     }, 50);
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
-                } else if (result === "O") {
+                } else if (result === "o") {
                     setTimeout(() => {
-                        alert(`${player2} congratulations you won!`);
+                        alert(`Player2 congratulations you won!`);
                     }, 50);
                    document.querySelectorAll(".box").forEach((box) => {
                     box.style.pointerEvents = "none";
