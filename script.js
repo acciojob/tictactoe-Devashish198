@@ -53,22 +53,22 @@ function game(player1, player2) {
 
     document.querySelectorAll(".box").forEach((box) => {
         box.addEventListener("click", () => {
-            if (box.innerHTML === "X" || box.innerHTML === "O") {
+            if (box.innerHTML === "x" || box.innerHTML === "o") {
                 alert("This box is already filled!");
                 return; // prevent further execution if box already filled
             }
 
             if (player1turn) {
-                box.innerHTML = "X";
-                board[box.id] = "X";
+                box.innerHTML = "x";
+                board[box.id] = "x";
 
                 let result = checkWin(board);
-                if (result === "X") {
+                if (result === "x") {
                     salut.textContent = "Player1 congratulations you won!";
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
-                } else if (result === "O") {
+                } else if (result === "o") {
                     salut.textContent = "Player2 congratulations you won!";
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
@@ -85,16 +85,16 @@ function game(player1, player2) {
                     salut.textContent = `${player2}, you're up`;
                 }
             } else if (player2turn) {
-                box.innerHTML = "O";
-                board[box.id] = "O";
+                box.innerHTML = "o";
+                board[box.id] = "o";
 
                 let result = checkWin(board);
-                if (result === "X") {
+                if (result === "x") {
                     salut.textContent = "Player1 congratulations you won!";
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
-                } else if (result === "O") {
+                } else if (result === "o") {
                     salut.textContent = "Player2 congratulations you won!";
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
