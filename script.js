@@ -5,9 +5,9 @@ let gameContainer = document.getElementById("game-container");
 let initial = document.getElementById("initial-container");
 submitBn.addEventListener("click", () => {
 
-    let player1 = document.getElementById("player-1").value;
-    let player2 = document.getElementById("player-2").value;
-    console.log(player1, player2);
+    let player1 = document.getElementById("player1").value;
+    let player2 = document.getElementById("player2").value;
+    
 
     if (player1.trim() !== "" && player2.trim() !== "") {
         alert("Form submitted successfully!");
@@ -27,11 +27,12 @@ let board = ["", "", "", "", "", "", "", "", ""];
 function game(player1, player2) {
     let salut = document.createElement("h2");
     salut.textContent = `${player1}, you're up`;
+	salut.classList.add("message");
     initial.appendChild(salut);
     for (let i = 0; i < 9; i++) {
         let cell = document.createElement("div");
         cell.classList.add("box");
-        cell.setAttribute("id", `box-${i}`);
+        cell.setAttribute("id", `${i}`);
         cell.style.cssText = `
         display: grid;
         place-items: center;
@@ -63,19 +64,19 @@ function game(player1, player2) {
             }
             if (player1turn) {
                 box.innerHTML = "X";
-                board[box.id.split("-")[1]] = "X";
+                board[box.id] = "X";
                
                 let result = checkWin(board);
                 if (result === "X") {
                     setTimeout(() => {
-                        alert(`${player1} wins!`);
+                        alert(`${player1} congratulations you won!`);
                     }, 50);
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
                 } else if (result === "O") {
                     setTimeout(() => {
-                        alert(`${player2} wins!`);
+                        alert(`${player2} congratulations you won!`);
                     }, 50);
                    document.querySelectorAll(".box").forEach((box) => {
                     box.style.pointerEvents = "none";
@@ -100,19 +101,19 @@ function game(player1, player2) {
             }
             else if (player2turn) {
                 box.innerHTML = "O";
-                board[box.id.split("-")[1]] = "O";
+                board[box.id] = "O";
                
                 let result = checkWin(board);
                 if (result === "X") {
                     setTimeout(() => {
-                        alert(`${player1} wins!`);
+                        alert(`${player1} congratulations you won!`);
                     }, 50);
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
                 } else if (result === "O") {
                     setTimeout(() => {
-                        alert(`${player2} wins!`);
+                        alert(`${player2} congratulations you won!`);
                     }, 50);
                    document.querySelectorAll(".box").forEach((box) => {
                     box.style.pointerEvents = "none";
