@@ -62,12 +62,12 @@ function game(player1, player2) {
 
                 let result = checkWin(board);
                 if (result === "x") {
-                    salut.textContent = "Player1 congratulations you won!";
+                    salut.textContent = `${player1} congratulations you won!`;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
                 } else if (result === "o") {
-                    salut.textContent = "Player2 congratulations you won!";
+                    salut.textContent = `${player2} congratulations you won!`;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
@@ -90,12 +90,12 @@ function game(player1, player2) {
 
                 let result = checkWin(board);
                 if (result === "x") {
-                    salut.textContent = "Player1 congratulations you won!";
+                    salut.textContent = `${player1} congratulations you won!`;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
                 } else if (result === "o") {
-                    salut.textContent = "Player2 congratulations you won!";
+                    salut.textContent = `${player2} congratulations you won!`;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
