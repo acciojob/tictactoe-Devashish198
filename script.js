@@ -50,9 +50,10 @@ function game(player1, player2) {
 
     let player1turn = true;
     let player2turn = false;
-
+	let gameOver = false;
     document.querySelectorAll(".box").forEach((box) => {
         box.addEventListener("click", () => {
+			 if (gameOver) return; 
             if (box.innerHTML === "x" || box.innerHTML === "o") {
                 alert("This box is already filled!");
                 return; // prevent further execution if box already filled
@@ -65,16 +66,19 @@ function game(player1, player2) {
                 let result = checkWin(board);
                 if (result === "x") {
                     salut.textContent = `${player1} congratulations you won!`;
+					gameOver = true;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
                 } else if (result === "o") {
                     salut.textContent = `${player2} congratulations you won!`;
+					gameOver = true;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
                 } else if (result === "draw") {
                     salut.textContent = "It's a draw!";
+					gameOver = true;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
@@ -91,16 +95,19 @@ function game(player1, player2) {
                 let result = checkWin(board);
                 if (result === "x") {
                     salut.textContent = `${player1} congratulations you won!`;
+					gameOver = true;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
                 } else if (result === "o") {
                     salut.textContent = `${player2} congratulations you won!`;
+					gameOver = true;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
                 } else if (result === "draw") {
                     salut.textContent = "It's a draw!";
+					gameOver = true;
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
