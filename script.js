@@ -25,7 +25,9 @@ let board = ["", "", "", "", "", "", "", "", ""];
 
 function game(player1, player2) {
     let salut = document.createElement("h2");
+	salut.classList.add("message");
     salut.textContent = `${player1}, you're up`;
+	
     initial.appendChild(salut);
     for (let i = 0; i < 9; i++) {
         let cell = document.createElement("div");
@@ -66,13 +68,13 @@ function game(player1, player2) {
                
                 let result = checkWin(board);
                 if (result === "x") {
-                    salut.textContent = `${player1}, congratulations you win`
+                    salut.textContent = `${player1}, congratulations you won!`
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
 					return;
                 } else if (result === "o") {
-                   salut.textContent = `${player2}, congratulations you win`
+                   salut.textContent = `${player2}, congratulations you won!`
                    document.querySelectorAll(".box").forEach((box) => {
                     box.style.pointerEvents = "none";
                 });
@@ -100,13 +102,13 @@ function game(player1, player2) {
                
                 let result = checkWin(board);
                 if (result === "x") {
-                   salut.textContent = `${player1}, congratulations you win`
+                   salut.textContent = `${player1}, congratulations you won!`
                     document.querySelectorAll(".box").forEach((box) => {
                         box.style.pointerEvents = "none";
                     });
 					return;
                 } else if (result === "o") {
-                    salut.textContent = `${player2}, congratulations you win`
+                    salut.textContent = `${player2}, congratulations you won!`
                    document.querySelectorAll(".box").forEach((box) => {
                     box.style.pointerEvents = "none";
                 });
@@ -135,18 +137,18 @@ function game(player1, player2) {
 
 
 function checkWin(board) {
-    // All possible winning combinations
+   
     const winCombos = [
         [0,1,2], [3,4,5], [6,7,8],   // rows
         [0,3,6], [1,4,7], [2,5,8],   // columns
         [0,4,8], [2,4,6]             // diagonals
     ];
 
-    // Check if any winning combination is satisfied
+   
     for (let combo of winCombos) {
         const [a, b, c] = combo;
         if (board[a] !== "" && board[a] === board[b] && board[b] === board[c]) {
-            return board[a]; // return "X" or "O" → winner found
+            return board[a]; 
         }
     }
 
@@ -155,7 +157,7 @@ function checkWin(board) {
         return "draw";
     }
 
-    // No winner and not a draw yet → game continues
+  
     return null;
 }
 
