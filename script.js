@@ -64,7 +64,7 @@ function game(player1, player2) {
             }
             if (player1turn) {
                 box.innerHTML = "x";
-                board[box.id.i] = "x";
+                board[box.id] = "x";
                
                 let result = checkWin(board);
                 if (result === "x") {
@@ -98,7 +98,7 @@ function game(player1, player2) {
             }
             else if (player2turn) {
                 box.innerHTML = "o";
-                board[box.id.i] = "o";
+                board[box.id] = "o";
                
                 let result = checkWin(board);
                 if (result === "x") {
