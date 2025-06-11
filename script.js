@@ -32,7 +32,7 @@ function game(player1, player2) {
     for (let i = 0; i < 9; i++) {
         let cell = document.createElement("div");
         cell.classList.add("box");
-        cell.setAttribute("id", `box-${i}`);
+        cell.setAttribute("id", {i});
         cell.style.cssText = `
         display: grid;
         place-items: center;
@@ -64,7 +64,7 @@ function game(player1, player2) {
             }
             if (player1turn) {
                 box.innerHTML = "x";
-                board[box.id.split("-")[1]] = "x";
+                board[box.id.[1]] = "x";
                
                 let result = checkWin(board);
                 if (result === "x") {
@@ -98,7 +98,7 @@ function game(player1, player2) {
             }
             else if (player2turn) {
                 box.innerHTML = "o";
-                board[box.id.split("-")[1]] = "o";
+                board[box.id.[1]] = "o";
                
                 let result = checkWin(board);
                 if (result === "x") {
