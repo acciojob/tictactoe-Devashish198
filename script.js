@@ -32,7 +32,7 @@ function game(player1, player2) {
     for (let i = 0; i < 9; i++) {
         let cell = document.createElement("div");
         cell.classList.add("box");
-        cell.setAttribute("id", {i});
+        cell.setAttribute("id", i);
         cell.style.cssText = `
         display: grid;
         place-items: center;
